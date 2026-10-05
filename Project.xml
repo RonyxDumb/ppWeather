@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+
+	<!-- ========================= APP ========================= -->
+    <!-- 27/07/2026 -->
+	<app
+		title="Pipino Weather"
+		file="PipinoWeather"
+		package="com.pipino.weather"
+		main="Main"
+		version="1.0.0"
+		company="Francesco Pio Pipino" />
+
+	<app preloader="flixel.system.FlxPreloader" />
+
+	<!-- ======================== WINDOW ======================= -->
+
+	<window
+		width="720"
+		height="1280"
+		fps="144"
+		background="#000000"
+		hardware="true"
+		vsync="true" />
+
+		<!-- Imposta l'antialiasing (hardware anti-aliasing) per la finestra/canvas di gioco -->
+		<window antialiasing="4" smooth="true" />
+
+	<!-- Desktop -->
+	<window
+		if="desktop"
+		orientation="portrait"
+		fullscreen="true"
+		resizable="true" />
+			
+	<!-- mobile -->
+	<window
+		if="mobile"
+		width="0"
+		height="0"
+		fullscreen="true"
+		orientation="landscape"
+		resizable="false" />
+ 
+
+	<!-- ======================== BUILD ======================== -->
+
+	<set name="BUILD_DIR" value="build/debug" if="debug"/>
+	<set name="BUILD_DIR" value="build/release" unless="debug"/>
+
+	<!-- ======================== ASSETS ======================= -->
+
+	<classpath name="src"/>
+	<assets path="img"/>
+	<assets path="fonts"/>
+
+	<!-- ====================== LIBRARIES ====================== -->
+
+	<haxelib name="flixel"/>
+	<haxelib name="flixel-addons"/>
+	<haxelib name="flixel-ui"/>
+
+	<!-- ======================= DEFINES ======================= -->
+
+	<haxedef name="FLX_NO_MOUSE" if="mobile"/>
+	<haxedef name="FLX_NO_KEYBOARD" if="mobile"/>
+	<haxedef name="FLX_NO_TOUCH" if="desktop"/>
+
+	<haxedef name="FLX_NO_FOCUS_LOST_SCREEN"/>
+	<haxedef name="FLX_NO_DEBUG" unless="debug"/>
+
+	<!-- ======================== ANDROID ====================== -->
+	<haxelib name="extension-androidtools" if="android"/>
+	<haxelib name="extension-haptics" if="android"/>
+
+	<!-- Permesso Android per la vibrazione -->
+	<android permission="android.permission.VIBRATE" />
+
+	<!-- ========================= ICONS ======================= -->
+	<!-- template manifest -->
+    <template path="templates/android/template/app/src/main/AndroidManifest.xml"
+    rename="app/src/main/AndroidManifest.xml" if="android"/>
+
+    <!-- template risorse adaptive icon -->
+    <template path="templates" if="android"/>
+
+    <!-- Android utilizza TEMPLATE dedicato -->
+    <template path="templates" if="android" />
+    <application icon="@mipmap/ic_launcher" if ="android"/>
+
+</project>

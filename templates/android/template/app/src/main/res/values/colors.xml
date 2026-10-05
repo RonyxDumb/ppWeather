@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colori Principali Tema Scuro / Dark Mode -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Tonalità di Grigio per Testi e Dettagli (Stile iOS) -->
+    <color name="gray_light">#FFE0E0E0</color>  <!-- Per testi secondari o confronti -->
+    <color name="gray_medium">#FFCCCCCC</color> <!-- Per date e orari -->
+    <color name="gray_dark">#FF888888</color>   <!-- Per crediti o note in sordina -->
+    
+    <!-- Accent Color (Opzionale: Viola/Azzurro minimale se serve per icone o pulsanti) -->
+    <color name="accent_blue">#FF0A84FF</color>
+</resources>
